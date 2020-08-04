@@ -47,11 +47,11 @@ public class CreateTeacher extends AppCompatActivity {
     Button crtbtn;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore fstore;
-    String userID;
+    String teacherID;
     ProgressBar progressBar;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_teacher);
 
@@ -107,8 +107,8 @@ public class CreateTeacher extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(CreateTeacher.this, "User Created", Toast.LENGTH_SHORT).show();
-                            userID = firebaseAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fstore.collection("users").document("userID");
+                            teacherID = firebaseAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fstore.collection("users").document(teacherID);
                             Map<String, Object> teacher = new HashMap<>();
                             teacher.put("fname", mfname);
                             teacher.put("lname", mlname);
@@ -116,7 +116,7 @@ public class CreateTeacher extends AppCompatActivity {
                             documentReference.set(teacher).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Log.d("TAG", "onSuccess: User Profile is Created for"+userID);
+                                    Log.d("TAG", "onSuccess: User Profile is Created for"+teacherID);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -124,7 +124,9 @@ public class CreateTeacher extends AppCompatActivity {
                                     Log.d("msg", "onFailure "+ e.toString());
                                 }
                             });
+                            FirebaseAuth.getInstance().signOut();
                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            finish();
                         } else {
                             Toast.makeText(CreateTeacher.this, "Error ! " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);

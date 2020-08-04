@@ -46,11 +46,11 @@ public class CreateStudent extends AppCompatActivity {
     Button crtbtn;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore fstore;
-    String userID;
+    String studentID;
     ProgressBar progressBar;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_student);
 
@@ -115,8 +115,8 @@ public class CreateStudent extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(CreateStudent.this, "User Created", Toast.LENGTH_SHORT).show();
-                            userID = firebaseAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fstore.collection("users").document("userID");
+                            studentID = firebaseAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fstore.collection("users").document(studentID);
                             Map<String, Object> student = new HashMap<>();
                             student.put("fname", mfname);
                             student.put("lname", mlname);
@@ -125,7 +125,7 @@ public class CreateStudent extends AppCompatActivity {
                             documentReference.set(student).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Log.d("TAG", "onSuccess: User Profile is Created for"+userID);
+                                    Log.d("TAG", "onSuccess: User Profile is Created for"+studentID);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -134,6 +134,8 @@ public class CreateStudent extends AppCompatActivity {
                                 }
                             });
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            FirebaseAuth.getInstance().signOut();
+                            finish();
                         } else {
                             Toast.makeText(CreateStudent.this, "Error ! " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);

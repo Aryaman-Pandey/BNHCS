@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
                 intent1.putExtra("counter", 0);
                 startActivity(intent1);
+                finish();
             }
         });
         teacher.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
                 intent2.putExtra("counter",1);
                 startActivity(intent2);
+                finish();
             }
         });
     }
