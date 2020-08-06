@@ -133,8 +133,8 @@ public class CreateStudent extends AppCompatActivity {
                                     Log.d("msg", "onFailure "+ e.toString());
                                 }
                             });
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();
                         } else {
                             Toast.makeText(CreateStudent.this, "Error ! " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
