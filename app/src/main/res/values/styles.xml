@@ -9,4 +9,13 @@
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/aliceregular</item>
+        <item name="actionMenuTextColor">#000000</item>
+        <item name="android:actionMenuTextColor">#000000</item>
+        <item name="color">#fff5d0</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:itemBackground">#000000</item>
+        <item name="android:colorButtonNormal">#000000</item>
+    </style>
 </resources>
