@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TeacherDashboard"></activity>
         <activity android:name=".StudentDashboard"></activity>
         <activity android:name=".CreateTeacher"></activity>
         <activity android:name=".CreateStudent"></activity>

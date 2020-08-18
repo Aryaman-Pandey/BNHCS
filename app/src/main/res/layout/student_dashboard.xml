@@ -29,13 +29,14 @@
         />
 
     <ImageView
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:src="@drawable/bnhlogo"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="30dp"
+        android:alpha="0"
         android:id="@+id/bnimage"
         />
     <ImageButton
@@ -46,7 +47,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:src="@drawable/ic_baseline_edit_24"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:drawablePadding="20dp"
         />
@@ -89,7 +90,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginStart="200dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
         android:id="@+id/r2"
         />
@@ -106,7 +107,7 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:layout_marginTop="40dp"
         android:layout_marginStart="210dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginEnd="20dp"
         android:id="@+id/notice"
         />
 
@@ -146,7 +147,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginStart="200dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
         android:id="@+id/r4"
         />
@@ -162,7 +163,7 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:layout_marginTop="20dp"
         android:layout_marginStart="210dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginEnd="20dp"
         android:id="@+id/gallery"
         />
 
@@ -202,7 +203,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginStart="200dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
         android:id="@+id/r6"
         />
@@ -218,7 +219,7 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:layout_marginTop="20dp"
         android:layout_marginStart="210dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginEnd="20dp"
         android:id="@+id/contact"
         />
 

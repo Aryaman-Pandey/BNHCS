@@ -83,6 +83,7 @@ public class CreateTeacher extends AppCompatActivity {
                 final String mfname = fname.getText().toString().trim();
                 final String mlname = lname.getText().toString().trim();
                 final String memail = email.getText().toString().trim();
+                final boolean TeacherVerify = true;
                 String mpswrd = pswrd.getText().toString().trim();
 
                 if(TextUtils.isEmpty(mfname)){
@@ -108,11 +109,12 @@ public class CreateTeacher extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(CreateTeacher.this, "User Created", Toast.LENGTH_SHORT).show();
                             teacherID = firebaseAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fstore.collection("users").document(teacherID);
+                            DocumentReference documentReference = fstore.collection("teacher").document("tc"+teacherID);
                             Map<String, Object> teacher = new HashMap<>();
                             teacher.put("fname", mfname);
                             teacher.put("lname", mlname);
                             teacher.put("email", memail);
+                            teacher.put("teacher", TeacherVerify);
                             documentReference.set(teacher).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -125,7 +127,9 @@ public class CreateTeacher extends AppCompatActivity {
                                 }
                             });
                             FirebaseAuth.getInstance().signOut();
-                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            Intent intent = new Intent(CreateTeacher.this, LoginActivity.class);
+                            intent.putExtra("counter", 1);
+                            startActivity(intent);
                             finish();
                         } else {
                             Toast.makeText(CreateTeacher.this, "Error ! " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();

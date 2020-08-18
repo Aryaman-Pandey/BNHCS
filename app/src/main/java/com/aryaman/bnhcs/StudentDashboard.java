@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class StudentDashboard extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
-    ImageView withoutbar;
+    ImageView withoutbar, bnimage;
     Animation big_anim;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,13 @@ public class StudentDashboard extends AppCompatActivity {
         setContentView(R.layout.student_dashboard);
 
         withoutbar = (ImageView) findViewById(R.id.withoutbar);
+        bnimage = (ImageView) findViewById(R.id.bnimage);
 
         big_anim = AnimationUtils.loadAnimation(StudentDashboard.this, R.anim.big_anim);
 
-        withoutbar.animate().translationY(50).setDuration(1500).setStartDelay(150);
+        bnimage.animate().alpha(1f).setDuration(2500).setStartDelay(500);
+        withoutbar.animate().translationY(50).setDuration(2000).setStartDelay(150);
         withoutbar.startAnimation(big_anim);
-
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
