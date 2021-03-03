@@ -88,7 +88,7 @@
         android:textAlignment="textStart"
         android:gravity="start"
         android:textAllCaps="false"
-        android:inputType="number"
+        android:inputType="text"
         android:padding="5dp"
         android:id="@+id/grade"
         />

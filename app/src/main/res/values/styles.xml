@@ -8,6 +8,7 @@
     </style>
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:fontFamily">@font/aliceregular</item>
@@ -18,4 +19,14 @@
         <item name="android:itemBackground">#000000</item>
         <item name="android:colorButtonNormal">#000000</item>
     </style>
+
+    <style name="Alert" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#000000</item>
+    </style>
+
+    <style name="NotificationTheme" parent="TextAppearance.Compat.Notification">
+        <item name="android:background">#ffffff</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
 </resources>

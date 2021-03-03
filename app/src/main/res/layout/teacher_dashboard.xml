@@ -50,6 +50,7 @@
         android:layout_marginTop="20dp"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:drawablePadding="20dp"
+        android:id="@+id/profilebutton"
         />
     <RelativeLayout
         android:layout_width="100dp"
@@ -220,7 +221,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="210dp"
         android:layout_marginEnd="20dp"
-        android:id="@+id/contact"
+        android:id="@+id/contactbtn"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
